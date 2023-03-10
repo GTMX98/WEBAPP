@@ -6,14 +6,14 @@ import statistics
 
 app = Flask(__name__)
 #sid = SentimentIntensityAnalyzer()
-co = {'compound':random.rand(0,9)}
+co = {'compound':random.rand(1)[0]}
 @app.route('/', methods=['GET', 'POST'])
 def index():
     result = None
     if request.method == 'POST':
         text = request.form['input-text']
         if len(text)>0:
-            Virality = abs(co['compound'])+random.randint(20, 150)
+            Virality = len(text)+abs(co['compound'])+random.randint(20, 150)
             Believability = abs(co['compound'])+random.randint(20, 150)
             PFI = (Virality+Believability)/2
         else:
