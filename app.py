@@ -13,9 +13,11 @@ def index():
     if request.method == 'POST':
         text = request.form['input-text']
         if len(text)>0:
-            Virality = len(text)+abs(co['compound'])+random.randint(20, 150)
+            Virality =len(text)+abs(co['compound'])+random.randint(20, 150)
+            Virality = round(Virality,2)
             Believability = abs(co['compound'])+random.randint(20, 150)
-            PFI = (Virality+Believability)/2
+            Believability = round(Believability,2)
+            PFI = round((Virality+Believability)/2,2)
         else:
             Virality = 0
             Believability = 0
