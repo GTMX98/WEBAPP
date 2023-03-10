@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    <meta charset="UTF-8">
+    <title>FORCAST</title>
+    <h1>FORCAST</h1>
+  </head>
+  <body>
+    <form id="input-form" method="POST">
+      <label for="input-text">Enter text:</label><br>
+      <textarea id="input-text" name="input-text" rows="4" cols="50"></textarea><br>
+      <input type="submit" value="RUN">
+    </form>
+    {% if result %}
+    <table id="result-table">
+        <tbody>
+            <td>PFI: {{ result['PFI'] }}</td>
+            <td>VIRALITY: {{ result['Vir'] }}</td>
+            <td>BELIEVABILITY: {{ result['BEL'] }}</td>
+        </tbody>
+    </table>
+    {% endif %}
+
+    <script type="text/javascript">
+      window.onbeforeunload = function() {
+        // Reset form inputs and remove result table
+        document.getElementById("input-form").reset();
+        var resultTable = document.getElementById("result-table");
+        if (resultTable !== null) {
+          resultTable.remove();
+        }
+      }
+    </script>
+  </body>
+</html>
