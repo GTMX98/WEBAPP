@@ -6,7 +6,7 @@ import statistics
 
 app = Flask(__name__)
 #sid = SentimentIntensityAnalyzer()
-co = {'compound':random.randint(0,9)}
+co = {'compound':random.rand(0,9)}
 @app.route('/', methods=['GET', 'POST'])
 def index():
     result = None
