@@ -10,7 +10,6 @@ joblib==1.2.0
 MarkupSafe==2.1.2
 nltk==3.8.1
 numpy==1.18.5
-pypiwin32==223
 regex==2022.10.31
 statistics==1.0.3.5
 tqdm==4.65.0
