@@ -1,21 +1,21 @@
 from flask import Flask, request, render_template
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+#from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from numpy import random
-import nltk
+#import nltk
 import statistics
 
 app = Flask(__name__)
-sid = SentimentIntensityAnalyzer()
+#sid = SentimentIntensityAnalyzer()
+co = {'compound':random.int(0,9)}
 @app.route('/', methods=['GET', 'POST'])
 def index():
     result = None
     if request.method == 'POST':
         text = request.form['input-text']
         if len(text)>0:
-            co = sid.polarity_scores(text)
             Virality = abs(co['compound'])+random.randint(20, 150)
             Believability = abs(co['compound'])+random.randint(20, 150)
-            PFI = statistics.mean([Virality,Believability])
+            PFI = (Virality+Believability)/2
         else:
             Virality = 0
             Believability = 0
